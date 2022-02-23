@@ -1,23 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Template</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500&display=swap" rel="stylesheet">
+    <script src="templates.js"></script>
+    <script src="main.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
 </head>
 
+<body onload="loadPokemon()">
+    <div class="navbar">
+        <div class="navMain1">
+            <div class="headline">
+                <img class="logo" src="./img/pokeball.png">
+                <h1 class="h1Nav">Pokedex</h1>
+            </div>
+        </div>
 
-<body>
+        <div class="navMain2">
+            <div class="inputfield">
+                <input class="search" id="search" onkeyup="filterPokemons()" type="text" placeholder="Search pokemon">
+            </div>
+        </div>
+    </div>
 
-   
+    <div class="pokeStats d-none" id="pokeStats">
+
+    </div>
 
 
+    <div id="loadScreen" class="loadContainer">
+        <div class="loader"></div>
+    </div>
 
-    <script src="main.js"></script>
+    <div class="pokeMain" id="pokeMain">
+
+    </div>
 </body>
-
-
 
 </html>

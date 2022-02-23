@@ -1,0 +1,368 @@
+body {
+    font-family: 'Heebo', sans-serif;
+    margin: 0;
+    overflow: hidden;
+}
+
+.navbar {
+    height: 10vh;
+    background-color: black;
+    box-shadow: 0 1px 6px 0;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 99;
+    width: 100%;
+}
+
+.loadContainer {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     background-color: rgba(0,0,0,0.9);;
+
+}
+
+.h1Nav{
+    color: white;
+    margin-left: 1rem;
+}
+
+
+.loader {
+    border: 16px solid white;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 150px;
+    height: 150px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.navMain1 {
+    position: absolute;
+    left: 0;
+}
+
+.navMain2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.pokeMain {
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10vh;
+    padding-top: 20px;
+    background-color: rgba(0,0,0,0.9);
+  
+}
+
+
+.headline {
+    display: flex;
+    align-items: center;
+    padding-left: 100px;
+}
+
+
+.logo {
+    height: 60px;
+}
+
+
+.inputfield {}
+
+
+.search {
+    padding: 10px;
+    width: 400px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+
+.pokeCard {
+    width: 300px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid #00000042;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 75ms ease-in-out;
+    box-shadow: 0px 0px 10px 1px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.pokeCard:hover {
+    transform: scale(1.05);
+    z-index: 88;
+}
+
+.pokeImg {
+    height: 110px;
+    width: 110px;
+    background-color: #f5f5f529;
+    padding: 3px;
+    border-radius: 32px;
+    margin: 15px;
+}
+
+.theType {
+    border: 1px solid #0000004f;
+    padding: 4px;
+    border-radius: 10px;
+    background-color: #f5f5f566;
+}
+
+
+.abilityBorder {
+    border: 1px solid #00000021;
+    border-radius: 15px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+}
+
+.abilityTitle {
+    display: flex;
+    align-items: center;
+}
+
+
+.detailBorder {
+    /* border: 1px solid #00000021; */
+    margin-top: 10px;
+    border-radius: 15px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+}
+
+.d-none {
+    display: none;
+}
+
+
+.abilityClass {
+    display: flex;
+    flex-direction: column;
+    text-align: end;
+}
+
+
+.pokeStats {
+    height: 90vh;
+    margin-top: 10vh;
+    background-image: url(./img/pokemon-g9d6790077_1280.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+}
+
+.pokeStatsMain {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.pokeStatsChild {
+    width: 375px;
+    height: 180px;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    /* margin-top: -100px; */
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 20px;
+    border: 1px solid black;
+}
+
+.goBack {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    cursor: pointer;
+    border: 1px solid #00000036;
+    padding: 5px;
+    border-radius: 10px;
+    transition: all 75ms ease-in-out;
+    background-color: rgb(245 245 245 / 22%);
+}
+
+.goBack:hover {
+    background-color: #f5f5f575;
+    transform: scale(1.06);
+}
+
+.pokeImgInStats {
+    height: 100px;
+    width: 100px;
+    margin-top: -7px;
+    z-index: 20;
+    cursor: pointer;
+    transition: transform 75ms ease-in-out;
+}
+
+.pokeImgInStats:hover {
+    transform: scale(1.15);
+}
+
+
+.detailStats {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid #00000021;
+    border-radius: 10px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+}
+
+
+.theStats {
+    width: 375px;
+    height: fit-content;
+    padding: 10px;
+    background-color: white;
+    border-radius: 20px;
+    margin-top: -20px;
+    z-index: 10;
+    font-size: 25px;
+    border: 1px solid black;
+}
+
+@media (max-width: 850px) {
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 1em;
+        z-index: 99;
+        padding-left: unset;
+    }
+
+    .navMain1 {
+        position: unset;
+        width: unset;
+    }
+
+    .headline {
+        padding-left: unset;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .h1Nav {
+        margin: 0;
+        font-size: 1.4em;
+    }
+
+    .pokeMain {
+        margin-top: 6em;
+        padding-left: unset;
+        padding-right: unset;
+        padding-top: 2em;
+    }
+
+    .pokeStatsChild {
+        width: 15em;
+        height: 120px;
+        position: relative;
+        margin-top: 2em;
+    }
+
+    .theStats {
+        width: 12em;
+    }
+
+    .navMain2 {
+        margin: 0.5em;
+    }
+
+    .statsId {
+        position: absolute;
+        left: 1em;
+        text-decoration: underline;
+    }
+
+    .search {
+        font-size: unset;
+        width: 18em;
+    }
+
+    .statsType {
+        position: absolute;
+        right: 1em;
+        font-weight: bold;
+        text-decoration: underline;
+        border: unset;
+        background-color: unset;
+        padding: unset;
+    }
+}
+
+@media (max-width: 850px) and (orientation: landscape) {
+    .pokeMain {
+        margin-top: unset;
+        padding-top: 7em;
+    }
+
+    .navbar {
+        padding: 2em;
+        padding-left: unset;
+    }
+
+    .pokeStats {
+        height: 100%;
+    }
+
+    .pokeStatsMain {
+        height: unset;
+        padding-top: 4em;
+    }
+
+    .loadContainer {
+        top: 3em;
+    }
+}
