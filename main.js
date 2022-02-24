@@ -12,12 +12,31 @@ let loadedPokemons= [];
 // location_area_encounters: "https://pokeapi.co/api/v2/pokemon/6/encounters"
 
 class Pokemon {
-
+     moves = [];
     constructor(pokemonInfoAsJson){
         this.name=pokemonInfoAsJson['name'];
         this.id=pokemonInfoAsJson['id'];
         this.type=pokemonInfoAsJson['types'][0]['type']['name'];
         this.image=pokemonInfoAsJson['sprites']['other']['home']['front_default'];
+        this.json=pokemonInfoAsJson;
+      
+        this.getMoves();
+    }
+
+
+    getMoves (){
+        let moves = [];
+        let moveNames = [];
+        this.json['moves'].forEach(move =>{
+            moves.push(move);
+        })
+       
+        console.log("my first pokeMove is",moves[0]['move']['name'] )
+
+        for (let i = 0; i < moves.length; i++){
+            moveNames.push(moves[i]['move']['name']);
+        }
+        console.log(moveNames)
     }
 }
 
@@ -30,7 +49,7 @@ async function loadPokemon() {
         currentPokemon.push(pokemonAsJson);
         console.log(pokemonAsJson);
         let myPokemon=new Pokemon(pokemonAsJson);
-      //  console.log("generated new Pokemon", myPokemon);
+        console.log("generated new Pokemon", myPokemon,"with json",myPokemon.json,"and with moves", );
         loadedPokemons.push(myPokemon);
        // console.log(loadedPokemons);
        // renderPokedex(pokemonAsJson);
