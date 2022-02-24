@@ -13,32 +13,56 @@ let loadedPokemons= [];
 
 class Pokemon {
      moves = [];
+     moveNames = [];
+     moveURL = [];
+     moveTypes= [];
     constructor(pokemonInfoAsJson){
         this.name=pokemonInfoAsJson['name'];
         this.id=pokemonInfoAsJson['id'];
         this.type=pokemonInfoAsJson['types'][0]['type']['name'];
         this.image=pokemonInfoAsJson['sprites']['other']['home']['front_default'];
-        this.json=pokemonInfoAsJson;
-      
-        this.getMoves();
+        this.json=pokemonInfoAsJson;    
+        this.getMoves(); 
+         this.getMoveType();
+             
     }
 
 
-    getMoves (){
+   getMoves (){
         let moves = [];
         let moveNames = [];
+        let moveURL = [];
         this.json['moves'].forEach(move =>{
             moves.push(move);
         })
-       
-        console.log("my first pokeMove is",moves[0]['move']['name'] )
 
         for (let i = 0; i < moves.length; i++){
             moveNames.push(moves[i]['move']['name']);
+            moveURL.push(moves[i]['move']['url']);
         }
-        console.log(moveNames)
+       
+       this.moves= moves;
+       this.moveNames= moveNames;
+       this.moveURL= moveURL;  
     }
+
+    async getMoveType() {
+        for (let i = 0; i < this.moveURL.length/4; i++)
+        {
+        let url = this.moveURL[i];
+        let response = await fetch(url);
+        let responseAsJson = await response.json();
+        this.moveTypes.push(responseAsJson['type']['name'])
+        }
+      
+        console.log(this.moveTypes)
+       // console.log(responseAsJson['type']['name']);
+    }
+
+    
+    
 }
+
 
 async function loadPokemon() {
     for (let i = 1; i < pokemonAmount; i++) {
@@ -47,9 +71,9 @@ async function loadPokemon() {
         let pokemonAsJson = await response.json();
 
         currentPokemon.push(pokemonAsJson);
-        console.log(pokemonAsJson);
+       // console.log(pokemonAsJson);
         let myPokemon=new Pokemon(pokemonAsJson);
-        console.log("generated new Pokemon", myPokemon,"with json",myPokemon.json,"and with moves", );
+       // console.log("generated new Pokemon", myPokemon,"with json",myPokemon.json,"and with moves",myPokemon.moves,"and with moveURL",myPokemon.moveURL,"and moveTyps",myPokemon.moveTypes);
         loadedPokemons.push(myPokemon);
        // console.log(loadedPokemons);
        // renderPokedex(pokemonAsJson);
@@ -159,3 +183,9 @@ function renderPokemon(pokemon) {
 
     document.getElementById(`pokeCard${pokemon.id}`).style.backgroundColor = terminateColor(pokemon.type); //
 }
+
+
+
+
+
+   
